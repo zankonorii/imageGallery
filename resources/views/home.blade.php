@@ -56,6 +56,10 @@
                                 </div>
                             </div>
                         @endforeach
+                        
+                        <div class="d-flex justify-content-center mt-5">
+                            {{$images->links("pagination::bootstrap-4")}}
+                        </div>
                     </div>
 
                 </div>
