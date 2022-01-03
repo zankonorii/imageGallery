@@ -28,9 +28,9 @@
                 <div class="card-body">        
                     <div class="d-flex flex-column">
                         @foreach($images as $image)
-                            <div class="card mx-auto" style="width: 36rem;">
+                            <div class="card mx-auto mt-5" style="width: 36rem;">
                                 <a href="{{route('show_image', $image)}}">
-                                    <img class="card-img-top" src="{{$image->url}}" alt="{{$image->titme}}">
+                                    <img class="card-img-top" src="{{asset('images/'.$image->url)}}" alt="{{$image->titme}}">
                                 </a>
                                 <div class="card-body">
                                 <div class="d-flex justify-content-between">

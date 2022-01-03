@@ -27,23 +27,26 @@
                       </nav>
                 </div>
                 <div class="card-body">
-                    @foreach($images as $image)
-                        <div class="card mx-auto my-5" style="width: 36rem;">
-                            <a href="{{route('show_image', $image)}}">
-                                <img class="card-img-top" src="{{asset('images/'.$image->url)}}" alt="{{$image->titme}}">
-                            </a>
-                            <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <p class="card-text ">
-                                    Likes {{$image->likes->count()}}
-                                </p>
-                                <a style="text-decoration:none"  
-                                        class="fa fa-trash fa-2x text-danger"
-                                        href="{{route('image_delete', $image)}}"></a>
-                            </div>
-                            </div>
+                    <form action="{{route('store_image')}}" 
+                    class="form-controller d-flex justify-content-center"
+                    method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-6">
+                            <input type="text" class="form-control text-center" 
+                        placeholder="title" name="title" required>
+
+                        <select name="category_id" class="form-control mt-5" required>
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>    
+                            @endforeach
+                        </select>
+
+                        <input type="file" class="form-control text-center mt-5" 
+                        placeholder="image" name="image" required>
+
+                        <button type="submit" class="form-control text-center btn-primary mt-5">ADD</button>
                         </div>
-                    @endforeach               
+                    </form>                  
                 </div>
             </div>
         </div>

@@ -10,6 +10,8 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'category_id', 'url', 'user_id'];
+
     public function likes()
     {
         return $this->hasMany(Like::class);

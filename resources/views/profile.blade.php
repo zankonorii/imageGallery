@@ -19,7 +19,7 @@
                                     <a class="nav-link" href="{{route('user_gallery')}}">Gallery</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">New</a>
+                                    <a class="nav-link" href="{{route('add_image')}}">New</a>
                                 </li>
                             
                           </ul>
@@ -32,10 +32,10 @@
                     method="POST">
                         @csrf
                         <div class="col-6">
-                            <input type="text" class="form-control text-center" 
+                            <input type="text" class="form-control text-center" placeholder="User Name"
                         value="{{$user->user_name}}" name="user_name">
 
-                        <input type="text" class="form-control text-center my-5" 
+                        <input type="text" class="form-control text-center my-5" placeholder="Email"
                         value="{{$user->email}}" name="email">
 
                         <button type="submit" class="form-control text-center btn-primary">update</button>
