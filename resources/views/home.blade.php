@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -36,12 +37,20 @@
                             <div class="card mx-auto" style="width: 36rem;">
                                 <img class="card-img-top" src="{{$image->url}}" alt="{{$image->titme}}">
                                 <div class="card-body">
-                                <p class="card-text">
-                                    Likes {{$image->likes->count()}}
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-text ">
+                                        Likes {{$image->likes->count()}}
+                                    </p>
                                     @if ($image->likeStatus())
-                                        Liked
+                                        <a style="text-decoration:none"  
+                                            class="fa fa-heart fa-2x text-danger"
+                                            href="{{route('like_image', $image)}}"></a>
+                                    @else
+                                        <a style="text-decoration:none"  
+                                            class="fa fa-heart-o fa-2x text-danger"
+                                            href="{{route('like_image', $image)}}"></a>
                                     @endif
-                                </p>
+                                </div>
                                 </div>
                             </div>
                         @endforeach
