@@ -22,4 +22,9 @@ class ImageController extends Controller
 
         return redirect(route('home'));
     }
+
+    public function show(Image $image)
+    {
+        return view('image', compact('image'));
+    }
 }

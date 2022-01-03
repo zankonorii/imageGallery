@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/like/image/{image}', [App\Http\Controllers\ImageController::class, 'like'])->name('like_image');
+Route::get('/image/show/{image}', [App\Http\Controllers\ImageController::class, 'show'])->name('show_image');
