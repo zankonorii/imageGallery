@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Image;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $categories = Category::limit(5)->get();
+
+        $images = Image::where(function($query)use($request){
+            if ($request->get('category')) 
+                $query->where('category_id',$request->get('category'));
+        })->paginate(6);
+
+        return view('home', compact('categories', 'images'));
     }
 }
