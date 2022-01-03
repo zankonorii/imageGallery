@@ -25,13 +25,7 @@
                         </div>
                       </nav>
                 </div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    
+                <div class="card-body">        
                     <div class="d-flex flex-column">
                         @foreach($images as $image)
                             <div class="card mx-auto" style="width: 36rem;">

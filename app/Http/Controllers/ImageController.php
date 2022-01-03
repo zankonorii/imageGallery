@@ -27,4 +27,11 @@ class ImageController extends Controller
     {
         return view('image', compact('image'));
     }
+
+    public function delete(Image $image)
+    {
+        $image->delete();
+
+        return redirect(route('user_gallery'));
+    }
 }
